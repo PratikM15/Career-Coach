@@ -6,8 +6,6 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
-from fpdf import FPDF
-from jinja2 import meta
 
 from .models import Institute, Registration, Status, Contact
 from .paytm import Checksum
