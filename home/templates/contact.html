@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	{% load static %}
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="{% static 'img/fav.png' %}">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>CareerCoach</title>
+	<!--
+			Google Font
+			============================================= -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+	<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+
+	<!-- Start Header Area -->
+	<header id="header">
+		<div class="container">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="/"><img src="{% static 'img/logo1.png' %}" alt="CareerCoach" title="" width="100px" height="30px"/></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="/">Home</a></li>
+						<li><a href="{% url 'search' %}">Search</a></li>
+					</ul>
+				</nav><!-- #nav-menu-container -->
+			</div>
+		</div>
+	</header>
+	<!-- End Header Area -->
+
+	<!-- Start Banner Area -->
+	<section class="banner-area relative">
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white">
+							Contact Us
+					</h1>
+					<p></p>
+					<div class="link-nav">
+						<span class="box">
+							<a href="/">Home </a>
+							<i class="lnr lnr-arrow-right"></i>
+							<a href="contact">Contact Us</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="rocket-img">
+			<img src="img/rocket.png" alt="">
+		</div>
+	</section>
+	<!-- End Banner Area -->
+
+	<!-- Start contact-page Area -->
+	<section class="contact-page-area section-gap">
+		<div class="container">
+			<div class="row">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119065.02460500285!2d79.00246966340165!3d21.161071438027154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a5a31faf13%3A0x19b37d06d0bb3e2b!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1596200657514!5m2!1sen!2sin"
+							width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+				<div class="col-lg-4 d-flex flex-column address-wrap" style="padding-top:50px">
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-home"></span>
+						</div>
+						<div class="contact-details">
+							<h5>Nagpur, Maharashtra, India</h5>
+							<p>
+							</p>
+						</div>
+					</div>
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-phone-handset"></span>
+						</div>
+						<div class="contact-details">
+							<h5>+91 9156441201</h5>
+							<p></p>
+						</div>
+					</div>
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-envelope"></span>
+						</div>
+						<div class="contact-details">
+							<h5>CareerCoach</h5>
+							<p>Send us your query anytime!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8" style="padding-top:50px">
+					<form class="form-area contact-form text-right" action="{% url 'contact' %}" method="post">{% csrf_token %}
+						<div class="row">
+							<div class="col-lg-6 form-group">
+								<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+								 class="common-input mb-20 form-control" required="" type="text">
+
+								<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''"
+								 onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+
+								<input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'"
+								 class="common-input mb-20 form-control" required="" type="text">
+							</div>
+							<div class="col-lg-6 form-group">
+								<textarea class="common-textarea form-control" name="message" placeholder="Enter Messege" onfocus="this.placeholder = ''"
+								 onblur="this.placeholder = 'Enter Messege'" required=""></textarea>
+							</div>
+							<div class="col-lg-12">
+								<div class="alert-msg" style="text-align: left;color:green">{{msg}}</div>
+								<button class="primary-btn" type="submit" style="float: right;">Send Message</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End contact-page Area -->
+
+<!-- Start Footer Area -->
+	<footer class="footer-area section-gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Categories</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='arts' %}">Arts</a></li>
+						<li><a href="{% url 'filter' keyword='commerce' %}">Commerce</a></li>
+						<li><a href="{% url 'filter' keyword='science' %}">Science</a></li>
+						<li><a href="{% url 'filter' keyword='others' %}">Others</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Top Cities</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='nagpur' %}">Nagpur</a></li>
+						<li><a href="{% url 'filter' keyword='amravati' %}">Amravati</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Features</h4>
+					<ul>
+						<li><a href="">Quik Registration</a></li>
+						<li><a href="">Easy Navigation</a></li>
+						<li><a href="">Offers Available</a></li>
+						<li><a href="">Scholarship Available</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Top Institutes</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='akash' %}">Akash</a></li>
+						<li><a href="{% url 'filter' keyword='resonance' %}">Resonance</a></li>
+						<li><a href="{% url 'filter' keyword='home' %}">IIT Home</a></li>
+						<li><a href="{% url 'filter' keyword='icad' %}">Icad</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-6 single-footer-widget">
+					<center><h4>CareerCoach</h4></center>
+					<p></p>
+					<div class="form-wrap" id="mc_embed_signup" style="padding-top:10px">
+						<center><img src="{% static 'img/logo1.png' %}" width="200px" height="50px"></center>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom row align-items-center">
+				<p class="footer-text m-0 col-lg-8 col-md-12">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Developed With <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://portfolio-pratik.netlify.app" target="_blank">Pratik Moharkar</a></p>
+				<div class="col-lg-4 col-md-12 footer-social">
+					<a href="https://www.facebook.com/pritam.moharkar/"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.facebook.com/pritam.moharkar/"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/pratik_moharkar/"><i class="fa fa-instagram"></i></a>
+					<a href="https://github.com/PratikM15"><i class="fa fa-github"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Area -->
+
+	<!-- ####################### Start Scroll to Top Area ####################### -->
+	<div id="back-top">
+		<a title="Go to Top" href="#"></a>
+	</div>
+	<!-- ####################### End Scroll to Top Area ####################### -->
+
+	<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="{% static 'js/easing.min.js' %}"></script>
+	<script src="{% static 'js/hoverIntent.js' %}"></script>
+	<script src="{% static 'js/superfish.min.js' %}"></script>
+	<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/owl-carousel-thumb.min.js' %}"></script>
+	<script src="{% static 'js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+	<script src="{% static 'js/waypoints.min.js' %}"></script>
+	<script src="{% static 'js/wow.min.js' %}"></script>
+	<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+	<script src="{% static 'js/mail-script.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

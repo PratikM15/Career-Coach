@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	{% load static %}
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="{% static 'img/fav.png' %}">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>CareerCoach</title>
+	<!--
+			Google Font
+			============================================= -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+	<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+
+	<!-- Start Header Area -->
+	<header id="header">
+		<div class="container">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="/"><img src="{% static 'img/logo1.png' %}" alt="CareerCoach" title="" width="100px" height="30px"/></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="/">Home</a></li>
+						<li><a href="{% url 'search' %}">Search</a></li>
+						<li><a href="{% url 'contact' %}">Contact</a></li>
+					</ul>
+				</nav><!-- #nav-menu-container -->
+			</div>
+		</div>
+	</header>
+	<!-- End Header Area -->
+
+
+    <!-- Start Banner Area -->
+	<section class="banner-area relative">
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white">
+							{{institute.name}}
+					</h1>
+					<p>{{institute.city}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="rocket-img">
+			<img src="{% static 'img/rocket.png' %}" alt="">
+		</div>
+	</section>
+	<!-- End Banner Area -->
+
+
+<div class="container" style="padding:20px">
+
+	<div class="row">
+	<center style="padding:10px"><h4><b>Please Fill the correct information</b></h4></center>
+
+
+		<div class="col-lg-8">
+			<form class="row g-3" action="{% url 'Checkout' institute.name %}" method="post">{% csrf_token %}
+		  <div class="col-md-6" style="padding:10px">
+			<label for="validationDefault01" class="form-label">First name</label>
+			<input type="text" class="form-control" id="validationDefault01" value="" name="first_name" required>
+		  </div>
+		  <div class="col-md-6" style="padding:10px">
+			<label for="validationDefault02" class="form-label">Last name</label>
+			<input type="text" class="form-control" id="validationDefault02" value="" name="last_name" required>
+		  </div>
+			<div class="col-md-6" style="padding:10px">
+			<label for="validationDefault03" class="form-label">Email</label>
+			<input type="email" class="form-control" id="validationDefault05" name="email" required>
+		  </div>
+			<div class="col-md-6" style="padding:10px">
+			<label for="validationDefault03" class="form-label">Mobile</label>
+			<input type="text" class="form-control" id="validationDefault06" name="mobile" required>
+		  </div>
+			<div class="col-md-6" style="padding:10px">
+			<label for="validationDefault03" class="form-label">City</label>
+			<input type="text" class="form-control" id="validationDefault03" name="city" required>
+		  </div>
+			<div class="col-md-6" style="padding:10px">
+			<label for="validationDefault03" class="form-label">State</label>
+			<input type="text" class="form-control" id="validationDefault04" name="state" required>
+		  </div>
+		  <div class="col-md-4" style="padding:10px">
+			<label for="validationDefault06" class="form-label">Zip</label>
+			<input type="text" class="form-control" id="validationDefault07" name="zip" required>
+		  </div>
+			<div class="col-md-8" style="padding:10px">
+		  </div>
+		<div class="col-md-4" style="padding:10px">
+		  </div>
+			<div class="col-md-12" style="padding:10px">
+				<div class="container" style="border: solid blue 3px;padding:10px">
+				<center><h4><b>Original Fee: ₹<label name="fees1" id="fees1">{{institute.fees}}</label></b></h4></center>
+					<div class="row">
+					<div class="col-md-8" style="padding-top:6px; padding-left:20px">
+						<input type="text" class="form-control" id="coupon" name="coupon" placeholder="Enter Coupon Code">
+					</div>
+						<div class="col-md-4">
+							<button class="primary-btn" onclick="disc()">Check</button>
+						</div>
+					</div>
+					<div style="padding-left:20px"><label id="error" value=""></label></div>
+				<center><h4><b>You will Pay: ₹<label name="fees2" id="fees2">{{institute.fees}}</label></b></h4></center>
+					<h5 style="padding:5px"><b>Applicable Coupons</b></h5>
+					<h6 style="padding:5px">DISC10</h6>
+					<h6 style="padding:5px">ONLINE5</h6>
+			   </div>
+
+				<div class="col-12" style="padding-top:30px">
+			  <button class="btn primary-btn" type="submit">Proceed</button>
+		  </div>
+		  </div>
+				<div class="col-md-4" style="padding:10px">
+		  </div>
+
+		</form>
+		</div>
+
+		<div class="col-lg-4" style="padding-top:30px; padding-left:70px">
+			<img src="{% static 'img/coupon.png' %}" class="img-fluid" width="400px" height="500px">
+		</div>
+
+	</div>
+
+</div>
+
+
+
+	<!-- Start Footer Area -->
+	<footer class="footer-area section-gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Categories</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='arts' %}">Arts</a></li>
+						<li><a href="{% url 'filter' keyword='commerce' %}">Commerce</a></li>
+						<li><a href="{% url 'filter' keyword='science' %}">Science</a></li>
+						<li><a href="{% url 'filter' keyword='others' %}">Others</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Top Cities</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='nagpur' %}">Nagpur</a></li>
+						<li><a href="{% url 'filter' keyword='amravati' %}">Amravati</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Features</h4>
+					<ul>
+						<li><a href="">Quik Registration</a></li>
+						<li><a href="">Easy Navigation</a></li>
+						<li><a href="">Offers Available</a></li>
+						<li><a href="">Scholarship Available</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Top Institutes</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='akash' %}">Akash</a></li>
+						<li><a href="{% url 'filter' keyword='resonance' %}">Resonance</a></li>
+						<li><a href="{% url 'filter' keyword='home' %}">IIT Home</a></li>
+						<li><a href="{% url 'filter' keyword='icad' %}">Icad</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-6 single-footer-widget">
+					<center><h4>CareerCoach</h4></center>
+					<p></p>
+					<div class="form-wrap" id="mc_embed_signup" style="padding-top:10px">
+						<center><img src="{% static 'img/logo1.png' %}" width="200px" height="50px"></center>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom row align-items-center">
+				<p class="footer-text m-0 col-lg-8 col-md-12">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Developed With <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://portfolio-pratik.netlify.app" target="_blank">Pratik Moharkar</a></p>
+				<div class="col-lg-4 col-md-12 footer-social">
+					<a href="https://www.facebook.com/pritam.moharkar/"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.facebook.com/pritam.moharkar/"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/pratik_moharkar/"><i class="fa fa-instagram"></i></a>
+					<a href="https://github.com/PratikM15"><i class="fa fa-github"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Area -->
+
+	<!-- ####################### Start Scroll to Top Area ####################### -->
+	<div id="back-top">
+		<a title="Go to Top" href="#"></a>
+	</div>
+	<!-- ####################### End Scroll to Top Area ####################### -->
+
+	<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="{% static 'js/easing.min.js' %}"></script>
+	<script src="{% static 'js/hoverIntent.js' %}"></script>
+	<script src="{% static 'js/superfish.min.js' %}"></script>
+	<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/owl-carousel-thumb.min.js' %}"></script>
+	<script src="{% static 'js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+	<script src="{% static 'js/waypoints.min.js' %}"></script>
+	<script src="{% static 'js/wow.min.js' %}"></script>
+	<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+	<script src="{% static 'js/mail-script.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

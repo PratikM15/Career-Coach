@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	{% load static %}
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="{% static 'img/fav.png' %}">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>CareerCoach</title>
+	<!--
+			Google Font
+			============================================= -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+	<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+
+	<!-- Start Header Area -->
+	<header id="header">
+		<div class="container">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="/"><img src="{% static 'img/logo1.png' %}" alt="CareerCoach" title="" width="100px" height="30px"/></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="/">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#categories">Categories</a></li>
+						<li><a href="{% url 'contact' %}">Contact</a></li>
+					</ul>
+				</nav><!-- #nav-menu-container -->
+			</div>
+		</div>
+	</header>
+	<!-- End Header Area -->
+
+
+	<!-- Start Banner Area -->
+	<section class="home-banner-area relative">
+		<div class="container">
+			<div class="row fullscreen d-flex align-items-center justify-content-center">
+				<div class="banner-content col-lg-8 col-md-12">
+					<h1 class="wow fadeIn" data-wow-duration="4s">We Rank the Best Coachings <br> for you.</h1>
+					<p class="text-white">
+						Search the Coachings and Institutes based on your Interest near you.
+					</p>
+
+					<div class="input-wrap">
+						<form action="search" class="form-box d-flex justify-content-between" method="post">{% csrf_token %}
+							<input type="text" placeholder="Search" class="form-control" name="keyword">
+							<button type="submit" class="btn search-btn">Search</button>
+						</form>
+					</div>
+					<h4 class="text-white">Top Searches</h4>
+
+					<div class="courses pt-20">
+						<a href="{% url 'filter' keyword='nagpur' %}" data-wow-duration="1s" data-wow-delay=".3s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Nagpur</a>
+						<a href="{% url 'filter' keyword='arts' %}" data-wow-duration="1s" data-wow-delay=".6s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Arts</a>
+						<a href="{% url 'filter' keyword='amravati' %}" data-wow-duration="1s" data-wow-delay=".9s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Amravati</a>
+						<a href="{% url 'filter' keyword='science' %}" data-wow-duration="1s" data-wow-delay="1.2s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Science</a>
+						<a href="{% url 'filter' keyword='wankhede' %}" data-wow-duration="1s" data-wow-delay="1.5s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Wankhede</a>
+						<a href="{% url 'filter' keyword='resonance' %}" data-wow-duration="1s" data-wow-delay="1.8s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Resonance</a>
+						<a href="{% url 'filter' keyword='icad' %}" data-wow-duration="1s" data-wow-delay="2.1s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Icad</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="rocket-img">
+			<img src="{% static 'img/rocket.png' %}" alt="">
+		</div>
+	</section>
+	<!-- End Banner Area -->
+
+
+	<!-- Start About Area -->
+	<section class="about-area section-gap" id="about">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-lg-5 col-md-6 about-left">
+					<img class="img-fluid" src="{% static 'img/about.jpg' %}" alt="">
+				</div>
+				<div class="offset-lg-1 col-lg-6 offset-md-0 col-md-12 about-right">
+					<h1>
+						Over 100+ Coaching Classes <br> From 5 Cities
+					</h1>
+					<div class="wow fadeIn" data-wow-duration="1s">
+						<p>
+							Find the coaching classes near you.
+						</p>
+					</div>
+					<a href="{% url 'filter' keyword='nagpur' %}" class="primary-btn">Explore</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End About Area -->
+
+
+	<!-- Start Courses Area -->
+	<section class="courses-area section-gap" id="categories">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-5 about-right">
+					<h1>
+						All Categories <br> based on your Interest
+					</h1>
+					<div class="wow fadeIn" data-wow-duration="1s">
+						<p>
+							Search classes based on your Aim of Life.
+						</p>
+					</div>
+					<a href="{% url 'filter' keyword='nagpur' %}" class="primary-btn green">Explore</a>
+				</div>
+				<div class="offset-lg-1 col-lg-6">
+					<div class="courses-right">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<ul class="courses-list">
+									<li>
+										<a class="wow fadeInLeft" href="{% url 'filter' keyword='arts' %}" data-wow-duration="1s" data-wow-delay=".1s">
+											<i class="fa fa-book"></i> Arts
+										</a>
+									</li>
+									<li>
+										<a class="wow fadeInLeft" href="{% url 'filter' keyword='commerce' %}" data-wow-duration="1s" data-wow-delay=".3s">
+											<i class="fa fa-book"></i> Commerce
+										</a>
+									</li>
+									<li>
+										<a class="wow fadeInLeft" href="{% url 'filter' keyword='science' %}" data-wow-duration="1s" data-wow-delay=".5s">
+											<i class="fa fa-book"></i> Science
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<ul class="courses-list">
+									<li>
+										<a class="wow fadeInRight" href="{% url 'filter' keyword='others' %}" data-wow-duration="1s" data-wow-delay="1.3s">
+											<i class="fa fa-book"></i> Computer
+										</a>
+									</li>
+									<li>
+										<a class="wow fadeInRight" href="{% url 'filter' keyword='others' %}" data-wow-duration="1s" data-wow-delay="1.1s">
+											<i class="fa fa-book"></i> Soft-Skills
+										</a>
+									</li>
+									<li>
+										<a class="wow fadeInRight" href="{% url 'filter' keyword='others' %}" data-wow-duration="1s" data-wow-delay=".9s">
+											<i class="fa fa-book"></i> English
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Courses Area -->
+
+
+	<!--Start Feature Area -->
+	<section class="feature-area">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="section-title text-center">
+						<h1>Our Features</h1>
+						<p>
+							If you are looking for your dream classes, then this is the Perfect place.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="feature-inner row">
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<center><img src="{% static 'img/elements/booking.png' %}" style="border-radius:50%" height="100px" width="100px">
+							<h4>Quick Registration</h4></center>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
+							<p>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<center><img src="{% static 'img/elements/navigation.png' %}" style="border-radius:50%" height="100px" width="100px">
+							<h4>Easy Navigation</h4></center>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
+							<p>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<center><img src="{% static 'img/elements/offer.jpg' %}" style="border-radius:50%" height="100px" width="100px">
+							<h4>Offers Available</h4></center>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<center><img src="{% static 'img/elements/scholarship.png' %}" style="border-radius:50%" height="100px" width="100px">
+							<h4>Scholarship Available</h4></center>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
+							<p>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<center><img src="{% static 'img/elements/trial.png' %}" style="border-radius:50%" height="100px" width="100px">
+							<h4>Free Trial Available</h4></center>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
+							<p>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-item">
+						<center><img src="{% static 'img/elements/support.jpg' %}" style="border-radius:50%" height="100px" width="100px">
+							<h4>Live Support</h4></center>
+						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
+							<p>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Feature Area -->
+
+	<!-- Start Testimonials Area -->
+	<section class="testimonials-area section-gap">
+		<div class="container">
+			<div class="testi-slider owl-carousel" data-slider-id="1">
+				<div class="item">
+					<div class="testi-item">
+						<img src="img/quote.png" alt="">
+							<h4>Resonance</h4>
+						<ul class="list">
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								Resonance is a JEE Main Coaching in Nagpur  that also teaches for other exams like JEE Advanced, BITSAT .
+								Resonance has 2 centers in Nagpur in Sitabardi, Lakadganj and
+								total 50 coaching centres across India. Resonance, Sitabardi, Nagpur specializes in JEE Advanced Coaching.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="testi-item">
+						<img src="img/quote.png" alt="">
+							<h4>Akash Institute</h4>
+						<ul class="list">
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								Aakash Institute is a JEE Main Coaching in Nagpur  that also teaches for other exams like JEE Advanced,
+								BITSAT . Aakash Institute has only one center in Nagpur in Gorepeth and total 163 coaching
+								centres across India. Aakash Institute, Gorepeth, Nagpur specializes in JEE Advanced Coaching.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="testi-item">
+						<img src="img/quote.png" alt="">
+						<h4>IIT Home</h4>
+						<ul class="list">
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								IIT Home is a JEE Main Coaching in Nagpur  that also teaches for other exams like JEE Advanced, BITSAT .
+								IIT Home has only one center in
+								India in Ramdaspeth, Nagpur. IIT Home, Ramdaspeth, Nagpur specializes in JEE Advanced Coaching .
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="testi-item">
+						<img src="img/quote.png" alt="">
+						<h4>ICAD</h4>
+						<ul class="list">
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+							<li><a href=""><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								ICAD is and will be totally devoted institute that is working towards protecting the interest of great Nation, India.
+								ICAD is working and will work towards creating and nurturing of talent of the student, and
+								towards creating well cultured personnel with clear concepts of life. VISION To be
+								one of the Top 5 brands of India in Education Sector. MISSION To contribute to Nation Building by empowering young generation.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="owl-thumbs d-flex justify-content-center" data-slider-id="1">
+				<div class="owl-thumb-item">
+					<div>
+						<img class="img-fluid" src="{% static 'img/institutes/icad.jpg' %}" alt="" width="100px" height="100px">
+					</div>
+					<div class="overlay overlay-grad"></div>
+				</div>
+				<div class="owl-thumb-item">
+					<div>
+						<img class="img-fluid" src="{% static 'img/institutes/akash.gif' %}" alt="" width="100px" height="100px">
+					</div>
+					<div class="overlay overlay-grad"></div>
+				</div>
+				<div class="owl-thumb-item">
+					<div>
+						<img class="img-fluid" src="{% static 'img/institutes/home.jpg' %}" alt="" width="100px" height="100px">
+					</div>
+					<div class="overlay overlay-grad"></div>
+				</div>
+				<div class="owl-thumb-item">
+					<div>
+						<img class="img-fluid" src="{% static 'img/institutes/resonance.jpg' %}" alt="" width="100px" height="100px">
+					</div>
+					<div class="overlay overlay-grad"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Testimonials Area -->
+
+
+	<!-- Start Footer Area -->
+	<footer class="footer-area section-gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Categories</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='arts' %}">Arts</a></li>
+						<li><a href="{% url 'filter' keyword='commerce' %}">Commerce</a></li>
+						<li><a href="{% url 'filter' keyword='science' %}">Science</a></li>
+						<li><a href="{% url 'filter' keyword='others' %}">Others</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Top Cities</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='nagpur' %}">Nagpur</a></li>
+						<li><a href="{% url 'filter' keyword='amravati' %}">Amravati</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Features</h4>
+					<ul>
+						<li><a href="">Quik Registration</a></li>
+						<li><a href="">Easy Navigation</a></li>
+						<li><a href="">Offers Available</a></li>
+						<li><a href="">Scholarship Available</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Top Institutes</h4>
+					<ul>
+						<li><a href="{% url 'filter' keyword='akash' %}">Akash</a></li>
+						<li><a href="{% url 'filter' keyword='resonance' %}">Resonance</a></li>
+						<li><a href="{% url 'filter' keyword='home' %}">IIT Home</a></li>
+						<li><a href="{% url 'filter' keyword='icad' %}">Icad</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-6 single-footer-widget">
+					<center><h4>CareerCoach</h4></center>
+					<p></p>
+					<div class="form-wrap" id="mc_embed_signup" style="padding-top:10px">
+						<center><img src="{% static 'img/logo1.png' %}" width="200px" height="50px"></center>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom row align-items-center">
+				<p class="footer-text m-0 col-lg-8 col-md-12">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Developed With <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://portfolio-pratik.netlify.app" target="_blank">Pratik Moharkar</a></p>
+				<div class="col-lg-4 col-md-12 footer-social">
+					<a href="https://www.facebook.com/pritam.moharkar/"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.facebook.com/pritam.moharkar/"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/pratik_moharkar/"><i class="fa fa-instagram"></i></a>
+					<a href="https://github.com/PratikM15"><i class="fa fa-github"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Area -->
+
+	<!-- ####################### Start Scroll to Top Area ####################### -->
+	<div id="back-top">
+		<a title="Go to Top" href="#"></a>
+	</div>
+	<!-- ####################### End Scroll to Top Area ####################### -->
+
+	<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="{% static 'js/easing.min.js' %}"></script>
+	<script src="{% static 'js/hoverIntent.js' %}"></script>
+	<script src="{% static 'js/superfish.min.js' %}"></script>
+	<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/owl-carousel-thumb.min.js' %}"></script>
+	<script src="{% static 'js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+	<script src="{% static 'js/waypoints.min.js' %}"></script>
+	<script src="{% static 'js/wow.min.js' %}"></script>
+	<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+	<script src="{% static 'js/mail-script.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
