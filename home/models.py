@@ -59,6 +59,7 @@ class Status(models.Model):
     def __str__(self):
         return self.user.registration_id
 
+
 class Contact(models.Model):
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
@@ -70,7 +71,3 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-

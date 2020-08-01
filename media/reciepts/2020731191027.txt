@@ -1,8 +1,0 @@
-Order ID : 2020731191027
-Name : Pratik Moharkar
-Institute : Resonance
-TXNID : 20200731111212800110168057201772552
-TXNAMOUNT : Rs. 900.00
-TXNDATE : 2020-07-31 19:09:06.0
-Status : TXN_SUCCESS
-Response Message : Txn Success

@@ -82,17 +82,17 @@ def checkout(request, name):
 
         param_dict = {
 
-            'MID': 'glNfxl71290944876196',
+            'MID': 'Your Merchant ID here',
             'ORDER_ID': str(registration.registration_id),
             'TXN_AMOUNT': str(fees),
             'CUST_ID': email,
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL': 'http://career-coach.herokuapp.com/payment',
+            'CALLBACK_URL': 'http://127.0.0.1:8000/payment',
 
         }
-        param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, 'SF&LjNr51tyW0fHD')
+        param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
         return render(request, 'paytm.html', {'param_dict': param_dict})
 
     return render(request, 'register.html')
@@ -110,7 +110,7 @@ def handlerequest(request):
     registration = Registration.objects.get(registration_id=response_dict['ORDERID'])
     status = Status.objects.get(user=registration)
 
-    verify = Checksum.verify_checksum(response_dict, "SF&LjNr51tyW0fHD", checksum)
+    verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
     if verify:
         registration.txn_id = str(response_dict['TXNID'])
         registration.txn_date = str(response_dict['TXNDATE'])
@@ -118,17 +118,6 @@ def handlerequest(request):
         registration.txn_status = str(response_dict['STATUS'])
         registration.txn_msg = str(response_dict['RESPMSG'])
         registration.save()
-        filename = "media/reciepts/" + response_dict['ORDERID'] + '.txt'
-        file1 = open(filename, 'w')
-        content = "Order ID : " + str(response_dict['ORDERID']) + "\n" + "Name : " + str(
-            registration.first_name) + " " + str(registration.last_name) + "\n" + "Institute : " + str(
-            registration.institute.name) + "\n" + "TXNID : " + str(
-            response_dict['TXNID']) + "\n" + "TXNAMOUNT : Rs. " + str(
-            response_dict['TXNAMOUNT']) + "\n" + "TXNDATE : " + str(
-            response_dict['TXNDATE']) + "\n" + "Status : " + str(
-            response_dict['STATUS']) + "\n" + "Response Message : " + str(response_dict['RESPMSG']) + "\n"
-        file1.write(content)
-        file1.close()
         if response_dict['RESPCODE'] == '01':
             status.registration_status = "Payment Successfull"
             status.save()
@@ -136,7 +125,7 @@ def handlerequest(request):
             status.registration_status = "Payment Failed"
             status.save()
         return render(request, 'paymentstatus.html',
-                      {'response': response_dict, 'reciept': filename, 'registration': registration})
+                      {'response': response_dict, 'registration': registration})
     return render(request, 'index.html')
 
 
