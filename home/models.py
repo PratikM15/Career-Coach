@@ -37,8 +37,8 @@ class Registration(models.Model):
     fees = models.CharField(max_length=10)
     registration_id = models.CharField(max_length=100, unique=True, default="")
     txn_id = models.CharField(max_length=100, default="")
-    txn_amount = models.CharField(max_length=10, default="")
-    txn_date = models.CharField(max_length=20, default="")
+    txn_amount = models.CharField(max_length=20, default="")
+    txn_date = models.CharField(max_length=50, default="")
     txn_status = models.CharField(max_length=100, default="")
     txn_msg = models.CharField(max_length=400, default="")
 
