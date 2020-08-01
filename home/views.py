@@ -89,7 +89,7 @@ def checkout(request, name):
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL': 'http://127.0.0.1:8000/payment',
+            'CALLBACK_URL': 'http://career-coach.herokuapp.com/payment',
 
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, 'SF&LjNr51tyW0fHD')
